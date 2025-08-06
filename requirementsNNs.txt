@@ -1,0 +1,10 @@
+albumentations==2.0.8
+fastprogress==1.0.3
+matplotlib==3.10.5
+numpy==2.3.2
+pandas==2.3.1
+scikit_learn==1.7.1
+timm==1.0.19
+torch==2.6.0+cu124
+torchvision==0.21.0+cu124
+tqdm==4.67.1

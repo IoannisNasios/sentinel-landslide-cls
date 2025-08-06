@@ -212,7 +212,7 @@ summary {
 <li><strong>Inference duration:</strong> About 3 hours on Google Colab pro</li>
 </ul>
 <p><br /></p>
-<p><strong>High Level solution description.</strong> The solution is based on the ensemble of 9 classification models predictions. Each one of these predictions is a simple average of all possible flips (TTA=4) of every fold (5 folds). At post processing, a threshold equal to 0.49 is applied to turn probabilities to binary estimations based on OOF.</p>
+<p><strong>High Level solution description.</strong> The final solution is an ensemble of predictions from nine classification models, comprising seven neural networks (NNs) and two gradient boosting models (GBMs). At post processing, a threshold equal to 0.49 is applied to turn probabilities to binary estimations based on OOF score.</p>
 <p><br /></p>
 <div id="system" class="section level3">
 <h3>System</h3>
@@ -247,12 +247,16 @@ summary {
 </tbody>
 </table>
 </div>
-<div id="configuration" class="section level3">
-<h3>Configuration</h3>
-<p>Modify the notebooks to specify the paths. Trained model weights should be placed in trained_weights directory.</p>
-<div id="train-models-notebooks" class="section level4">
-<h4><strong>Train Models Notebooks</strong></h4>
-<p><a href="Landslide_Class_S2S1_v18bG.ipynb">LightGBM</a><br />
+<div id="run-code" class="section level3">
+<h3>Run Code</h3>
+<div id="configuration" class="section level4">
+<h4><strong>Configuration</strong></h4>
+<p>Before running the notebooks, ensure that all file paths are correctly updated as needed. Since the gradient boosting models (GBMs) were trained without GPU acceleration and the neural networks (NNs) were trained with GPU support, two separate requirements.txt files are provided, each listing the necessary libraries and compatible versions for their respective environments.</p>
+</div>
+<div id="train-and-inference-of-individual-models" class="section level4">
+<h4><strong>Train and Inference of Individual Models</strong></h4>
+<p>To achieve the optimal solution, train all models by executing the notebooks listed below. Ensure that all necessary configurations and file paths are properly set beforehand. The order in which the notebooks are run is not important. Upon completion, the notebooks will generate out-of-fold (OOF) predictions, test probability files (test_probs), and submission files, all saved to their respective directories.<br />
+<a href="Landslide_Class_S2S1_v18bG.ipynb">LightGBM</a><br />
 <a href="Landslide_Class_S2S1_v44G.ipynb">XGBoost</a><br />
 <a href="Landslide_Class_S2S1_v10G.ipynb">Maxvit Tiny</a><br />
 <a href="Landslide_Class_S2S1_v20G.ipynb">Vit Medium</a><br />
@@ -264,12 +268,12 @@ summary {
 </div>
 <div id="ensemble-predictions" class="section level4">
 <h4><strong>Ensemble Predictions</strong></h4>
-<p>Run the following notebook to ensemble predictions of individual models<br />
+<p>After successfully running the training notebooks, execute the following notebook to ensemble the model predictions. This step combines outputs from all trained models to generate the final predictions. (Generates submission file: Landslide_Class_S2S1_ensembleAVGv101820313337394446_THRESH0.49b.csv)<br />
 <a href="Landslide_Class_S2S1_ensembleG.ipynb">Ensemble</a></p>
 </div>
-<div id="extra-notebook" class="section level4">
-<h4><strong>Extra notebook</strong></h4>
-<p>Use the following notebook to any similar test dataset to get new estimations provided that trained model weights are in the model weights directory.<br />
+<div id="extra-notebook---inference" class="section level4">
+<h4><strong>Extra notebook - Inference</strong></h4>
+<p>To generate landslide predictions on any test dataset, use the following notebook. Ensure that all trained model weights are placed in the weights directory. This notebook is designed for inference only, it loads the pre-trained models, runs predictions on the input data, and performs ensembling to produce the final output. (Create solution output: AVG5THRESH0.49.csv for competition test data).<br />
 <a href="landslide-class-inf6nooof.ipynb">New test predictions</a></p>
 <p><br /></p>
 <p><br /></p>

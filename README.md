@@ -18,7 +18,7 @@
 
 <br />  
 
-**High Level solution description.** The solution is based on the ensemble of 9 classification models predictions. Each one of these predictions is a simple average of all possible flips (TTA=4) of every fold (5 folds). At post processing, a threshold equal to 0.49 is applied to turn probabilities to binary estimations based on OOF.
+**High Level solution description.** The final solution is an ensemble of predictions from nine classification models, comprising seven neural networks (NNs) and two gradient boosting models (GBMs). At post processing, a threshold equal to 0.49 is applied to turn probabilities to binary estimations based on OOF score.
 
 <br />  
 
@@ -34,12 +34,14 @@
 
 
 
-### Configuration  
-Modify the notebooks to specify the paths. Trained model weights should be 
-placed in trained_weights directory.  
+### Run Code   
+
+#### **Configuration**  
+Before running the notebooks, ensure that all file paths are correctly updated as needed. Since the gradient boosting models (GBMs) were trained without GPU acceleration and the neural networks (NNs) were trained with GPU support, two separate requirements.txt files are provided, each listing the necessary libraries and compatible versions for their respective environments.  
 
 
-#### **Train Models Notebooks**  
+#### **Train and Inference of Individual Models**  
+To achieve the optimal solution, train all models by executing the notebooks listed below. Ensure that all necessary configurations and file paths are properly set beforehand. The order in which the notebooks are run is not important. Upon completion, the notebooks will generate out-of-fold (OOF) predictions, test probability files (test_probs), and submission files, all saved to their respective directories.  
 [LightGBM](Landslide_Class_S2S1_v18bG.ipynb)  
 [XGBoost](Landslide_Class_S2S1_v44G.ipynb)  
 [Maxvit Tiny](Landslide_Class_S2S1_v10G.ipynb)  
@@ -52,13 +54,13 @@ placed in trained_weights directory.
 
 
 #### **Ensemble Predictions**  
-Run the following notebook to ensemble predictions of individual models  
+After successfully running the training notebooks, execute the following notebook to ensemble the model predictions. This step combines outputs from all trained models to generate the final predictions. (Generates submission file: Landslide_Class_S2S1_ensembleAVGv101820313337394446_THRESH0.49b.csv)  
 [Ensemble](Landslide_Class_S2S1_ensembleG.ipynb)  
 
 
 
-#### **Extra notebook**
-Use the following notebook to any similar test dataset to get new estimations provided that trained model weights are in the model weights directory.  
+#### **Extra notebook - Inference**
+To generate landslide predictions on any test dataset, use the following notebook. Ensure that all trained model weights are placed in the weights directory. This notebook is designed for inference only, it loads the pre-trained models, runs predictions on the input data, and performs ensembling to produce the final output. (Create solution output: AVG5THRESH0.49.csv for competition test data).  
 [New test predictions](landslide-class-inf6nooof.ipynb)  
 
 
