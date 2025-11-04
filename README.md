@@ -1,5 +1,9 @@
 # Classification for Landslide Detection
 
+This repo comes after author's participation in a machine learning competition for Landslide Detection using Sentinel-1 and Sentinel-2 data.  
+
+<img src="samplesNbandsc.png" alt="three channels of sample images" />  
+*Three channels of 3 samples without Landslide (first) and three samples with Landslide (last)*
 
 <br />  
 
