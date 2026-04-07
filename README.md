@@ -46,26 +46,26 @@ Before running the notebooks, ensure that all file paths are correctly updated a
 
 #### **Train and Inference of Individual Models**  
 To achieve the optimal solution, train all models by executing the notebooks listed below. Ensure that all necessary configurations and file paths are properly set beforehand. The order in which the notebooks are run is not important. Upon completion, the notebooks will generate out-of-fold (OOF) predictions, test probability files (test_probs), and submission files, all saved to their respective directories.  
-[LightGBM](Landslide_Class_S2S1_v18bG.ipynb)  
-[XGBoost](Landslide_Class_S2S1_v44G.ipynb)  
-[Maxvit Tiny](Landslide_Class_S2S1_v10G.ipynb)  
-[Vit Medium](Landslide_Class_S2S1_v20G.ipynb)  
-[Vit pwee 2Ecnoders](Landslide_Class_S2S1_v31G.ipynb)  
-[Vit pwee 2Ecnoders](Landslide_Class_S2S1_v33G.ipynb)  
-[Vit pwee 3Ecnoders](Landslide_Class_S2S1_v37G.ipynb)  
-[Caformer S18 3Ecnoders](Landslide_Class_S2S1_v39G.ipynb)  
-[Vit Medium rope 3Ecnoders](Landslide_Class_S2S1_v46G.ipynb)  
+[LightGBM](nbs/Landslide_Class_S2S1_v18bG.ipynb)  
+[XGBoost](nbs/Landslide_Class_S2S1_v44G.ipynb)  
+[Maxvit Tiny](nbs/Landslide_Class_S2S1_v10G.ipynb)  
+[Vit Medium](nbs/Landslide_Class_S2S1_v20G.ipynb)  
+[Vit pwee 2Ecnoders](nbs/Landslide_Class_S2S1_v31G.ipynb)  
+[Vit pwee 2Ecnoders](nbs/Landslide_Class_S2S1_v33G.ipynb)  
+[Vit pwee 3Ecnoders](nbs/Landslide_Class_S2S1_v37G.ipynb)  
+[Caformer S18 3Ecnoders](nbs/Landslide_Class_S2S1_v39G.ipynb)  
+[Vit Medium rope 3Ecnoders](nbs/Landslide_Class_S2S1_v46G.ipynb)  
 
 
 #### **Ensemble Predictions**  
 After successfully running the training notebooks, execute the following notebook to ensemble the model predictions. This step combines outputs from all trained models to generate the final predictions. (Generates submission file: Landslide_Class_S2S1_ensembleAVGv101820313337394446_THRESH0.49b.csv)  
-[Ensemble](Landslide_Class_S2S1_ensembleG.ipynb)  
+[Ensemble](nbs/Landslide_Class_S2S1_ensembleG.ipynb)  
 
 
 
 #### **Extra notebook - Inference**
 To generate landslide predictions on any test dataset, use the following notebook. Ensure that all trained model weights are placed in the weights directory. This notebook is designed for inference only, it loads the pre-trained models, runs predictions on the input data, and performs ensembling to produce the final output. (Create solution output: AVG5THRESH0.49.csv for competition test data).  
-[New test predictions](landslide-class-inf6nooof.ipynb)  
+[New test predictions](nbs/landslide-class-inf6nooof.ipynb)  
 
 
 <br /> 
