@@ -72,5 +72,26 @@ To generate landslide predictions on any test dataset, use the following noteboo
 
 
 
+## Citing This Work    
+**This code has been used in the research paper "Multi-modal landslide detection from Sentinel-1 SAR and Sentinel-2 optical imagery using multi-encoder vision transformers and ensemble learning". If you find this code useful, please consider citing it.**  
+
+This research was published by [Remote Sensing Applications: Society and Environment](https://www.sciencedirect.com/science/article/pii/S2352938526001709) and It's preprint can be found on [arxiv](https://arxiv.org/pdf/2604.05959).  
+
+BibTeX:
+```bibtex
+@article{nasios2026multi,
+  title = {Multi-modal landslide detection from Sentinel-1 SAR and Sentinel-2 optical imagery using multi-encoder vision transformers and ensemble learning},
+  author={Nasios, Ioannis},
+  journal = {Remote Sensing Applications: Society and Environment},
+  volume = {42},
+  pages = {102037},
+  year = {2026},
+  publisher={Elsevier}
+}
+
+```
+
+
+
 <br />  
 
